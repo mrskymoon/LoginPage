@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'sans-regular';
+  src: url('./Assets/fonts/ibmplexsansarabic-regular.woff2') format('woff2'),
+       url('./Assets/fonts/ibmplexsansarabic-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body{
+  font-family: 'sans-regular', sans-serif !important;
+}
+.container-body{
+    background-color: #f9f9fa;
+    height: 100vh;
+}
+.header{
+    position: relative;
+    background-color: #fff;
+    color: #26282a;
+    line-height: 84px;
+    padding-left: 50px;
+  }
+  .txt-align-right{
+    text-align: right;
+  }
+
+  .help{
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #188fff;
+    text-decoration: none;
+  }
+
+  .help:active, .help:hover {
+    outline: 0;
+    text-decoration: none;
+}
+.login-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}

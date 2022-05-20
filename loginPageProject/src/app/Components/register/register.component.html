@@ -1,0 +1,100 @@
+<div class="login-box">
+    <div class="form-row g-0">
+        <div class="col text-center mb-3">
+            <div class="register-page-header">
+                <app-logo class="sm-logo"></app-logo>
+            </div>
+        </div>
+    </div>
+    <div class="login-form">
+        <h2 class="create-account-title">Create a Yahoo account</h2>
+        <form class="form">
+            <fieldset class="input-group form-fieldset">
+                <div id="fullName" class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <i class="input-field-icon icon-contact"></i>
+                            <input type="text" class="form-control input-with-icon" id="userFullName" placeholder="First name" required>
+                            <label for="userFullName" class="form-label">Full name</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control input-with-icon" id="userFullName" placeholder="Surname" required>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+                <div class="form-group full-width">
+                    <div class="form-row">
+                        <div class="col">
+                            <i class="input-field-icon icon-email"></i>
+                            <input type="email" class="form-control input-with-icon" id="emailAddress" placeholder="Email address" required>
+                            <p class="tail-label">@yahoo.com</p>
+                            <label for="emailAddress" class="form-label">New Yahoo email address</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+                <div class="form-group full-width">
+                    <div class="form-row">
+                        <div class="col">
+                            <i class="input-field-icon icon-password"></i>
+                            <input type="text" class="form-control input-with-icon" id="password">
+                            <label for="password" class="form-label">Create password</label>
+                            <a (click)="togglePasswordVisibility()" class="toggle-button">
+                                <i [ngClass]="!showPassword ? 'input-field-icon icon-show-password' : 'input-field-icon icon-hide-password'"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+                <div class="form-group full-width">
+                    <div class="form-row">
+                        <div class="col">
+                            <i class="input-field-icon icon-dob"></i>
+                            <input type="text" class="form-control input-with-icon" id="birthYear" placeholder="YYYY">
+                            <label for="birthYear" class="form-label">Birth year</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-row">
+                <div class="col form-group">
+                    <p class="policy-term">By clicking "Continue", you agree to the <a href="https://legal.yahoo.com/in/en/yahoo/terms/otos/index.html">Terms</a> and 
+                        <a href="https://legal.yahoo.com/in/en/yahoo/privacy/index.html"> Privacy Policy</a></p>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="col form-group">
+                    <div class="d-grid button-container">
+                        <button type="submit" class="btn btn-lg btn-block page-button">Continue</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="social-media-text"> or create an account with</div>
+                    <ul class="social-login">
+                        <li>
+                            <button type="submit" class="btn-social-media sc-button btn-google"></button>
+                        </li>
+                        <li>
+                            <!-- <i class="input-field-icon icon-email"></i> -->
+                            <button type="submit" class="btn-social-media sc-button btn-myemail"><label class="btn-myemail-label"> My Email Address</label></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <p class="txt-sign-up">Already have an account? <a href="https://login.yahoo.com/?intl=in&specId=yidregsimplified&done=https%3A%2F%2Fwww.yahoo.com&prompt=login">Sign in</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>

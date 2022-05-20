@@ -1,0 +1,7 @@
+.logo{
+    height: 36px;
+  }
+
+:host-context(.sm-logo) img {
+    height: 27px;
+}
