@@ -1,0 +1,135 @@
+<div class="login-box">
+    <div class="form-row g-0">
+        <div class="col text-center mb-3">
+            <div class="register-page-header">
+                <app-logo class="sm-logo"></app-logo>
+            </div>
+        </div>
+    </div>
+    <div class="login-form">
+        <h2 class="create-account-title">Create a Yahoo account</h2>
+        <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <fieldset class="input-group form-fieldset">
+                <div id="fullName" class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <i [ngClass]="isFocusOn !=='contactName' ? 'input-field-icon icon-contact':'input-field-icon icon-contact-focus'"></i>
+                            <input type="text" (focus)="onFocus('contactName')" (blur)="onBlur()" class="form-control input-with-icon" id="userFullName" placeholder="First name" formControlName="firstname" [ngClass]="{ 'is-invalid': isSubmitted && f['firstname'].errors}"/>
+                            <label for="userFullName" class="form-label" [ngClass]="f['firstname'].value ? 'isTextAvailable' : ''">Full name</label>
+                            <div *ngIf="isSubmitted && f['firstname'].errors" class="invalid-feedback">
+                              <div *ngIf="f['firstname'].errors['required']">This is required.</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control input-with-icon" id="userLastName" placeholder="lastname" formControlName="lastname" [ngClass]="{ 'is-invalid': isSubmitted && f['lastname'].errors}"/>
+                            <div *ngIf="isSubmitted && f['lastname'].errors" class="invalid-feedback">
+                              <div *ngIf="f['lastname'].errors['required']">This is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+                <div class="form-group full-width">
+                    <div class="form-row">
+                        <div class="col">
+                            <i [ngClass]="isFocusOn !=='email' ? 'input-field-icon icon-email':'input-field-icon icon-email-focus'"></i>
+                            <input (focus)="onFocus('email')" (blur)="onBlur()" type="email" class="form-control input-with-icon" id="emailAddress" placeholder="Email address" formControlName="email" [ngClass]="{ 'is-invalid': isSubmitted && f['email'].errors }"/>
+                            <p class="tail-label">@yahoo.com</p>
+                            <label for="emailAddress" class="form-label" [ngClass]="f['email'].value ? 'isTextAvailable' : ''">New Yahoo email address</label>
+                            <div *ngIf="isSubmitted && f['email'].errors" class="invalid-feedback">
+                              <div *ngIf="f['email'].errors['required']">This is required.</div>
+                              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+                <div class="form-group full-width">
+                    <div class="form-row">
+                        <div class="col">
+                            <i [ngClass]="isFocusOn !=='password' ? 'input-field-icon icon-password':'input-field-icon icon-password-focus'"></i>
+                            <input (focus)="onFocus('password')" (blur)="onBlur()" [type]="(showPassword) ? 'text' : 'password'" class="form-control input-with-icon" id="password" formControlName="encryptpassword" [ngClass]="{ 'is-invalid': isSubmitted && f['encryptpassword'].errors }" />
+                            <label for="password" class="form-label" [ngClass]="f['encryptpassword'].value ? 'isTextAvailable' : ''">Create password</label>
+                            <a (click)="togglePasswordVisibility()" class="toggle-button">
+                                <i [ngClass]="!showPassword ? 'input-field-icon icon-show-password' : 'input-field-icon icon-hide-password'"></i>
+                            </a>
+                            <div *ngIf="isSubmitted && f['encryptpassword'].errors" class="invalid-feedback">
+                              <div *ngIf="f['encryptpassword'].errors['required']">This is required.</div>
+                              <div *ngIf="f['encryptpassword'].errors['minlength']">
+                                Password must be at least 8 characters
+                              </div>
+                              <div *ngIf="f['encryptpassword'].errors['maxlength']">
+                                Password must not exceed 20 characters
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+              <div class="form-group full-width">
+                <div class="form-row">
+                  <div class="col">
+                    <i [ngClass]="isFocusOn !=='mobile' ? 'input-field-icon icon-mobile':'input-field-icon icon-mobile-focus'"></i>
+                    <input (focus)="onFocus('mobile')" (blur)="onBlur()" type="number" class="form-control input-with-icon" id="mobile" formControlName="mobile" [ngClass]="{ 'is-invalid': isSubmitted && f['mobile'].errors }" />
+                    <label for="mobile" class="form-label" [ngClass]="f['mobile'].value ? 'isTextAvailable' : ''">Contact Number</label>
+                    <div *ngIf="isSubmitted && f['mobile'].errors" class="invalid-feedback">
+                      <div *ngIf="f['mobile'].errors['required']">This is required.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="input-group form-fieldset">
+                <div class="form-group full-width">
+                    <div class="form-row">
+                        <div class="col">
+                            <i [ngClass]="isFocusOn !=='dob' ? 'input-field-icon icon-dob':'input-field-icon icon-dob-focus'" class="input-field-icon "></i>
+                            <input (focus)="onFocus('dob')" (blur)="onBlur()" type="number" class="form-control input-with-icon" id="birthYear" placeholder="YYYY" formControlName="dob" [ngClass]="{'is-invalid': isSubmitted && f['dob'].errors }" />
+                            <label for="birthYear" class="form-label" [ngClass]="f['dob'].value ? 'isTextAvailable' : ''">Birth year</label>
+                            <div *ngIf="isSubmitted && f['dob'].errors" class="invalid-feedback">
+                              <div *ngIf="f['dob'].errors['required']">This is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-row">
+                <div class="col form-group">
+                    <p class="policy-term">By clicking "Continue", you agree to the <a href="https://legal.yahoo.com/in/en/yahoo/terms/otos/index.html">Terms</a> and
+                        <a href="https://legal.yahoo.com/in/en/yahoo/privacy/index.html"> Privacy Policy</a></p>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="col form-group">
+                    <div class="d-grid button-container">
+                        <button type="submit" class="btn btn-lg btn-block page-button">Continue</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="social-media-text"> or create an account with</div>
+                    <ul class="social-login">
+                        <li>
+                            <a type="button" class="btn-social-media sc-button btn-google" href="https://accounts.google.com/"></a>
+                        </li>
+                        <li>
+                            <a type="button" class="btn-social-media sc-button btn-myemail" href="https://login.yahoo.com/account/create"><label class="btn-myemail-label"> My Email Address</label></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <p class="txt-sign-up">Already have an account? <a href="https://login.yahoo.com/?intl=in&specId=yidregsimplified&done=https%3A%2F%2Fwww.yahoo.com&prompt=login">Sign in</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

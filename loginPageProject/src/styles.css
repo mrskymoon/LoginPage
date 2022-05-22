@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'sans-regular';
+  src: url('src/assets/fonts/ibmplexsansarabic-regular.woff2') format('woff2'),
+  url('src/assets/fonts/ibmplexsansarabic-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/*body{*/
+/*  font-family: 'sans-regular', sans-serif !important;*/
+/*}*/
+.container-body{
+  background-color: #f9f9fa;
+  height: 100vh;
+}

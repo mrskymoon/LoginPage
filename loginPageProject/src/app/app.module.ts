@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './Components/register/register.component';
-import { LogoComponent } from './Components/logo/logo.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { HttpClientModule } from '@angular/common/http';
+import {ApiService} from "./services/api.service";
 
 @NgModule({
   declarations: [
@@ -14,9 +16,11 @@ import { LogoComponent } from './Components/logo/logo.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
