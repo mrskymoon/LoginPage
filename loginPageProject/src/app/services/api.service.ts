@@ -9,16 +9,10 @@ import { Post } from '../post';
 export class ApiService {
   private apiURL = "https://atologistinfotech.com/api/register.php?";
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
-
   constructor(private http : HttpClient) { }
 
-  postRequest(data:any):Observable<Post>{
-    return this.http.post<Post>(this.apiURL, JSON.stringify(data), this.httpOptions)
+  postRequest(formData:any):Observable<Post>{
+    return this.http.post<Post>(this.apiURL, formData)
       .pipe(
         catchError(this.errorHandler)
       )

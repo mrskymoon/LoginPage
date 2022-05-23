@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ApiService} from "./services/api.service";
+import { ApiService } from "./services/api.service";
 
 @NgModule({
   declarations: [

@@ -8,6 +8,7 @@ import * as CryptoJS from 'crypto-js';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  formResponse:any = {};
   showPassword:boolean = false;
   isSubmitted:boolean = false;
   isFocusOn:string = '';
@@ -40,7 +41,7 @@ export class RegisterComponent implements OnInit {
       email:['',[Validators.required, Validators.email]],
       encryptpassword:['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
       dob:['',Validators.required],
-      mobile:['',[Validators.required,Validators.minLength(10)]]
+      mobile:['',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     })
   }
 
@@ -64,10 +65,25 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.encryptPassword();
 
-      this.api.postRequest(this.registerForm.value)
+      const formData = new FormData()
+      formData.append('firstname', this.registerForm.value['firstname']);
+      formData.append('lastname', this.registerForm.value['lastname']);
+      formData.append('email', this.registerForm.value['email']);
+      formData.append('encryptpassword', this.registerForm.value['encryptpassword']);
+      formData.append('dob', this.registerForm.value['dob']);
+      formData.append('mobile', this.registerForm.value['mobile']);
+
+      this.api.postRequest(formData)
         .subscribe({
-          next:(response) => {console.log(response)},
-          error:() => {console.log('error')}
+          next:(response) => {
+            this.formResponse = response;
+            if(this.formResponse.success > 0){
+              alert(this.formResponse.data)
+              this.onReset();
+            }else{
+              console.log(this.formResponse.error_code)
+            }
+          },error:() => {console.log('error')}
         })
     }
   }

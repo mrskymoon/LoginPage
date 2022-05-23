@@ -73,10 +73,11 @@
                 <div class="form-row">
                   <div class="col">
                     <i [ngClass]="isFocusOn !=='mobile' ? 'input-field-icon icon-mobile':'input-field-icon icon-mobile-focus'"></i>
-                    <input (focus)="onFocus('mobile')" (blur)="onBlur()" type="number" class="form-control input-with-icon" id="mobile" formControlName="mobile" [ngClass]="{ 'is-invalid': isSubmitted && f['mobile'].errors }" />
+                    <input (focus)="onFocus('mobile')" (blur)="onBlur()" type="text" class="form-control input-with-icon" id="mobile" formControlName="mobile" [ngClass]="{ 'is-invalid': isSubmitted && f['mobile'].errors }" />
                     <label for="mobile" class="form-label" [ngClass]="f['mobile'].value ? 'isTextAvailable' : ''">Contact Number</label>
                     <div *ngIf="isSubmitted && f['mobile'].errors" class="invalid-feedback">
                       <div *ngIf="f['mobile'].errors['required']">This is required.</div>
+                      <div *ngIf="f['mobile'].errors['pattern']">Mobile number is not 10 digit</div>
                     </div>
                   </div>
                 </div>
@@ -124,7 +125,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row pb-10">
                 <div class="col">
                     <p class="txt-sign-up">Already have an account? <a href="https://login.yahoo.com/?intl=in&specId=yidregsimplified&done=https%3A%2F%2Fwww.yahoo.com&prompt=login">Sign in</a></p>
                 </div>

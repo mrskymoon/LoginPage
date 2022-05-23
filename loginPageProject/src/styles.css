@@ -4,13 +4,13 @@
   url('src/assets/fonts/ibmplexsansarabic-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
 }
 
-/*body{*/
-/*  font-family: 'sans-regular', sans-serif !important;*/
-/*}*/
 .container-body{
   background-color: #f9f9fa;
   height: 100vh;
+}
+
+.pb-10{
+  padding-bottom: 10px;
 }
